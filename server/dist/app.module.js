@@ -10,6 +10,9 @@ exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
 const config_1 = require("@nestjs/config");
 const is_dev_util_1 = require("./libs/common/utils/is-dev.util");
+const prisma_module_1 = require("./prisma/prisma.module");
+const auth_module_1 = require("./auth/auth.module");
+const user_module_1 = require("./user/user.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -19,7 +22,10 @@ exports.AppModule = AppModule = __decorate([
             config_1.ConfigModule.forRoot({
                 ignoreEnvFile: !is_dev_util_1.IS_DEV_ENV,
                 isGlobal: true
-            })
+            }),
+            prisma_module_1.PrismaModule,
+            auth_module_1.AuthModule,
+            user_module_1.UserModule
         ]
     })
 ], AppModule);
